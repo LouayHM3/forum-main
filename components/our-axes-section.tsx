@@ -89,16 +89,8 @@ export function OurAxesSection() {
   }
 
   return (
-    <section className="py-16 md:py-24 overflow-hidden relative">
-      {/* Geometric Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-primary/20 rotate-45 rounded-lg"></div>
-        <div className="absolute top-20 right-20 w-24 h-24 border-2 border-primary/15 rotate-12"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 border border-primary/10 rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-20 h-20 border-2 border-primary/25 rotate-45"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Title */}
           <div className="text-center mb-16">
@@ -168,16 +160,10 @@ export function OurAxesSection() {
                     }}
                     onClick={() => goToSlide(index)}
                   >
-                    {/* Geometric Card */}
+                    {/* Simple Card */}
                     <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 w-80 h-80 border border-primary/20 shadow-2xl group hover:shadow-primary/10 hover:shadow-3xl transition-all duration-500">
-                      {/* Geometric Background Pattern */}
-                      <div className="absolute inset-0 rounded-3xl overflow-hidden">
-                        <div className="absolute top-4 right-4 w-16 h-16 border-2 border-primary/10 rotate-45 rounded-lg"></div>
-                        <div className="absolute bottom-4 left-4 w-12 h-12 border border-primary/15 rotate-12 rounded-full"></div>
-                      </div>
-                      
                       {/* Number Badge */}
-                      <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center shadow-xl rotate-12 group-hover:rotate-0 transition-all duration-500">
+                      <div className="absolute -top-6 -right-6 w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-xl">
                         <span className="text-white font-bold text-lg">{axe.number}</span>
                       </div>
                       
@@ -192,13 +178,6 @@ export function OurAxesSection() {
                             className="object-contain filter contrast-125"
                           />
                         </div>
-                        {/* Geometric Shape Decoration */}
-                        <div className="absolute -bottom-2 -right-2">
-                          <GeometricShape 
-                            shape={axe.shape} 
-                            className="text-primary/30 group-hover:text-primary/60 transition-all duration-300" 
-                          />
-                        </div>
                       </div>
                       
                       {/* Content */}
@@ -207,7 +186,21 @@ export function OurAxesSection() {
                           {axe.title}
                         </h3>
                         <p className="text-primary/80 leading-relaxed group-hover:text-primary/90 transition-colors duration-300">
-                          {axe.description}
+                          {axe.id === "formation" && (
+                            <>
+                              <span style={{ color: '#FCCD11' }} className="font-semibold">Formation</span> et développement des <span style={{ color: '#FCCD11' }} className="font-semibold">compétences techniques</span> et professionnelles des étudiants ingénieurs.
+                            </>
+                          )}
+                          {axe.id === "project" && (
+                            <>
+                              Réalisation de <span style={{ color: '#FCCD11' }} className="font-semibold">prestations de services</span> et <span style={{ color: '#FCCD11' }} className="font-semibold">projets</span> pour les entreprises et organismes partenaires.
+                            </>
+                          )}
+                          {axe.id === "event" && (
+                            <>
+                              Organisation d'<span style={{ color: '#FCCD11' }} className="font-semibold">événements</span> et contribution au développement de l'<span style={{ color: '#FCCD11' }} className="font-semibold">écosystème entrepreneurial</span> tunisien.
+                            </>
+                          )}
                         </p>
                       </div>
                       
@@ -220,26 +213,18 @@ export function OurAxesSection() {
             </div>
           </div>
 
-          {/* Geometric Indicators */}
-          <div className="flex justify-center gap-4 mt-12">
+          {/* Simple Dots Indicators */}
+          <div className="flex justify-center gap-3 mt-12">
             {axes.map((axe, index) => (
               <button
                 key={axe.id}
                 onClick={() => goToSlide(index)}
-                className={`relative transition-all duration-300 group ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'scale-125'
-                    : 'scale-100 hover:scale-110'
+                    ? 'bg-primary scale-125'
+                    : 'bg-primary/30 hover:bg-primary/60'
                 }`}
-              >
-                <div className={`w-12 h-12 rounded-2xl border-2 transition-all duration-300 flex items-center justify-center ${
-                  index === currentIndex
-                    ? 'border-primary bg-primary text-white shadow-lg shadow-primary/30'
-                    : 'border-primary/30 bg-white/80 text-primary hover:border-primary/60 hover:bg-primary/10'
-                }`}>
-                  <GeometricShape shape={axe.shape} className="w-5 h-5" />
-                </div>
-              </button>
+              />
             ))}
           </div>
         </div>

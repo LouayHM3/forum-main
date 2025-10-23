@@ -131,7 +131,26 @@ export function ServicesScrollStack() {
                             {service.title}
                           </h3>
                           <p className="text-primary/70 text-sm leading-relaxed">
-                            {service.description}
+                            {service.id === "consulting" && (
+                              <>
+                                <span style={{ color: '#FCCD11' }} className="font-semibold">Conseil</span> et <span style={{ color: '#FCCD11' }} className="font-semibold">expertise</span> en management, <span style={{ color: '#FCCD11' }} className="font-semibold">stratégie d'entreprise</span> et gestion de projets pour optimiser vos performances.
+                              </>
+                            )}
+                            {service.id === "informatique" && (
+                              <>
+                                <span style={{ color: '#FCCD11' }} className="font-semibold">Développement web</span>, mobile, <span style={{ color: '#FCCD11' }} className="font-semibold">intelligence artificielle</span> et <span style={{ color: '#FCCD11' }} className="font-semibold">solutions logicielles</span> sur mesure pour vos besoins.
+                              </>
+                            )}
+                            {service.id === "electrique" && (
+                              <>
+                                <span style={{ color: '#FCCD11' }} className="font-semibold">Conception</span> et études électriques, <span style={{ color: '#FCCD11' }} className="font-semibold">automatisation</span> et électrotechnique pour vos <span style={{ color: '#FCCD11' }} className="font-semibold">installations industrielles</span>.
+                              </>
+                            )}
+                            {service.id === "mecanique" && (
+                              <>
+                                <span style={{ color: '#FCCD11' }} className="font-semibold">Conception mécanique</span>, CAO, <span style={{ color: '#FCCD11' }} className="font-semibold">simulation numérique</span> et <span style={{ color: '#FCCD11' }} className="font-semibold">prototypage</span> pour vos projets d'innovation.
+                              </>
+                            )}
                           </p>
                         </div>
                         
